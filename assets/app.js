@@ -10,6 +10,7 @@ import {
   VGrid,
   VToolbar,
   VCard,
+  VCarousel,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -19,6 +20,7 @@ import Components from 'components/_index'
 import { createStore } from 'store/index'
 import { createRouter } from 'router/index'
 import { sync } from 'vuex-router-sync'
+
 
 Vue.use(Vuetify, {
   components: {
@@ -31,10 +33,11 @@ Vue.use(Vuetify, {
     VGrid,
     VToolbar,
     VCard,
+    VCarousel,
     transitions
   },
   theme: {
-    primary: '#ee44aa',
+    primary: '#9c3eb4',
     secondary: '#424242',
     accent: '#82B1FF',
     error: '#FF5252',

@@ -42,7 +42,7 @@ export function createRouter () {
           component: Meetups
         },
         {
-          path:'/meetups/new',
+          path:'/meetup/new',
           name:'CreateMeetup',
           component: CreateMeetup
         },
