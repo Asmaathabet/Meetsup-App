@@ -10,11 +10,12 @@
         </v-layout>
         <v-layout row wrap class="mt-2">
             <v-flex xs12 sm6 offset-sm3 >
-               <v-carousel>
+               <v-carousel style="carsor:pointer">
                 <v-carousel-item
                 v-for="meetup in meetups"
                 :key="meetup.id"
                 :src="meetup.ImageURL"
+                @click="onLoadMeetup(meetup.id)"
                 >
                 <div class="title">
                     {{ meetup.title}}
@@ -35,22 +36,33 @@
 <script>
 
   export default {
-    data () {
-      return {
-        meetups: [
-          {
-            ImageURL: 'https://100resilientcities.org/wp-content/uploads/2017/06/Paris-hero-crop-e1539202545467.jpg', id : 'kjfdgfdjjlaj', title: 'Meetup in Paris'
-          },
-          {
-            ImageURL: 'https://media.architecturaldigest.com/photos/5c116b315ed1df490d899801/16:9/w_1280,c_limit/An%2520aerial%2520view%2520of%2520Hudson%2520Yards-%2520courtesy%2520of%2520Related-Oxford%2520(1).jpg', id : 'gflsglsflgf', title: 'Meetup in New York'
-          },
-          {
-            ImageURL: 'https://www.worldatlas.com/r/w728-h425-c728x425/upload/c7/28/32/untitled-design-207.jpg',id : 'gfdgdfgdflerw', title: 'Meetup in England'
-          },
-          {
-            ImageURL: 'https://cdn-wp.s3-eu-central-1.amazonaws.com/wp-content/uploads/sites/3/2018/06/Amsterdam_City_Canals11.jpg',id : 'fdslfjsdfowr', title: 'Meetup in Amestrdam'
-          }
-        ]
+    // data () {
+    //   return {
+    //     meetups: [
+    //       {
+    //         ImageURL: 'https://100resilientcities.org/wp-content/uploads/2017/06/Paris-hero-crop-e1539202545467.jpg', id : 'kjfdgfdjjlaj', title: 'Meetup in Paris'
+    //       },
+    //       {
+    //         ImageURL: 'https://media.architecturaldigest.com/photos/5c116b315ed1df490d899801/16:9/w_1280,c_limit/An%2520aerial%2520view%2520of%2520Hudson%2520Yards-%2520courtesy%2520of%2520Related-Oxford%2520(1).jpg', id : 'gflsglsflgf', title: 'Meetup in New York'
+    //       },
+    //       {
+    //         ImageURL: 'https://www.worldatlas.com/r/w728-h425-c728x425/upload/c7/28/32/untitled-design-207.jpg',id : 'gfdgdfgdflerw', title: 'Meetup in England'
+    //       },
+    //       {
+    //         ImageURL: 'https://cdn-wp.s3-eu-central-1.amazonaws.com/wp-content/uploads/sites/3/2018/06/Amsterdam_City_Canals11.jpg',id : 'fdslfjsdfowr', title: 'Meetup in Amestrdam'
+    //       }
+    //     ]
+    //   }
+    // },
+    computed:{
+        meetups () {
+          return  this.$store.getters.feauterdMeetups
+        }
+    },
+     methods:
+    {
+      onLoadMeetup(id){
+        this.$router.push('/meetups/'+id)
       }
     }
   }
@@ -65,7 +77,8 @@
     color:#fff; 
     size:2em;
     padding:15px;
-    margin-left: 110px;
-    text-align: center
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
 </style>
