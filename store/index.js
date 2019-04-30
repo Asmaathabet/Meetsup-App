@@ -59,8 +59,8 @@ export function createStore () {
     },
 
     mutations: {
-      createMeetup(state, payload){
-           state.loadedMeetups.push(payload)
+      createMeetup(state,payload){
+        state.loadedMeetups.push(payload)
       }
     },
 

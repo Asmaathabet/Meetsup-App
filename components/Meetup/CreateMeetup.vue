@@ -106,6 +106,6 @@ export default {
 
 <style>
 .middle{   
-   margin-left: 500px;
+  /* margin-left: 500px; */
 }
 </style>
