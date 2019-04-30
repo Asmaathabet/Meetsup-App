@@ -42,9 +42,27 @@ export function createStore () {
   
     },
 
-    actions: {},
+    actions: {
+      createMeetup ({commit},payload){
+          const meetup = {
+             title : payload.title,
+             location : payload.location,
+             imageUrl : payload.imageUrl,
+             description : payload.description,
+             date: payload.date,
+             id: 'vffykhjll1122'
+          }
 
-    mutations: {},
+          // Reach out to Firebase and Store it 
+          commit('createMeetup',meetup)
+      }
+    },
+
+    mutations: {
+      createMeetup(state, payload){
+           state.loadedMeetups.push(payload)
+      }
+    },
 
     getters: {
       loadedMeetups(state){
